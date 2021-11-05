@@ -1,17 +1,21 @@
 // @flow
 import * as d3 from 'd3'
 
-export type TrackId = 'MOBILE' | 'WEB_CLIENT' | 'FOUNDATIONS' | 'SERVERS' |
+export type TrackId = 'PRIVACY' | 'INFO_SEC' | 'IT_SEC' | 
+  'PROD_SEC' | 'BUSINESS_SOL' | 'IT_SUPPORT' |
+
   'PROJECT_MANAGEMENT' | 'COMMUNICATION' | 'CRAFT' | 'INITIATIVE' |
   'CAREER_DEVELOPMENT' | 'ORG_DESIGN' | 'WELLBEING' | 'ACCOMPLISHMENT' |
   'MENTORSHIP' | 'EVANGELISM' | 'RECRUITING' | 'COMMUNITY'
 export type Milestone = 0 | 1 | 2 | 3 | 4 | 5
 
 export type MilestoneMap = {
-  'MOBILE': Milestone,
-  'WEB_CLIENT': Milestone,
-  'FOUNDATIONS': Milestone,
-  'SERVERS': Milestone,
+  'PRIVACY': Milestone,
+  'INFO_SEC': Milestone,
+  'IT_SEC': Milestone,
+  'PROD_SEC': Milestone,
+  'BUSINESS_SOL': Milestone,
+  'IT_SUPPORT': Milestone,
   'PROJECT_MANAGEMENT': Milestone,
   'COMMUNICATION': Milestone,
   'CRAFT': Milestone,
@@ -71,10 +75,12 @@ export type Track = {
 }
 
 type Tracks = {|
-  'MOBILE': Track,
-  'WEB_CLIENT': Track,
-  'FOUNDATIONS': Track,
-  'SERVERS': Track,
+  'PRIVACY': Track,
+  'INFO_SEC': Track,
+  'IT_SEC': Track,
+  'PROD_SEC': Track,
+  'BUSINESS_SOL': Track,
+  'IT_SUPPORT': Track,
   'PROJECT_MANAGEMENT': Track,
   'COMMUNICATION': Track,
   'CRAFT': Track,
@@ -90,10 +96,10 @@ type Tracks = {|
 |}
 
 export const tracks: Tracks = {
-  "MOBILE": {
-    "displayName": "Mobile",
+  "PRIVACY": {
+    "displayName": "Privacy",
     "category": "A",
-    "description": "Develops expertise in native mobile platform engineering, such as iOS or Android",
+    "description": "Develops expertise in Privacy, such as Privacy by Design, GDPR or other privacy regulations",
     "milestones": [{
       "summary": "Works effectively within established iOS or Android architectures, following current best practices",
       "signals": [
@@ -157,10 +163,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "WEB_CLIENT": {
-    "displayName": "Web client",
+  "INFO_SEC": {
+    "displayName": "Information Security",
     "category": "A",
-    "description": "Develops expertise in web client technologies, such as HTML, CSS, and JavaScript",
+    "description": "Develops expertise in Information Security, such as XXX, YYY, and ZZZ",
     "milestones": [{
       "summary": "Works effectively within established web client architectures, following current best practices",
       "signals": [
@@ -224,10 +230,10 @@ export const tracks: Tracks = {
     }],
   },
 
-  "FOUNDATIONS": {
-    "displayName": "Foundations",
+  "IT_SEC": {
+    "displayName": "IT Security",
     "category": "A",
-    "description": "Develops expertise in foundational systems, such as deployments, pipelines, databases and machine learning",
+    "description": "Develops expertise in coorporate IT Security systems, such as endpoint protection, device management, polices, active directory, etc.",
     "milestones": [{
       "summary": "Works effectively within established structures, following current best practices",
       "signals": [
@@ -291,10 +297,145 @@ export const tracks: Tracks = {
     }],
   },
 
-  "SERVERS": {
-    "displayName": "Servers",
+  "BUSINESS_SOL": {
+    "displayName": "Business Solutions",
+    "category": "A",
+    "description": "Develops expertise in business solutions, such as powerflow, automation, databases and machine learning",
+    "milestones": [{
+      "summary": "Works effectively within established structures, following current best practices",
+      "signals": [
+        "Writes thorough postmortems for service outages",
+        "Makes simple configuration changes to services",
+        "Performs backfills safely and effectively, without causing pages",
+      ],
+      "examples": [
+        "Made safe and effective Ansible changes",
+        "Implemented new ETL pipelines based on existing ones",
+        "Resolved out of disk errors independently",
+      ],
+    }, {
+      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "signals": [
+        "Made minor version upgrades to technologies",
+        "Builds machine learning jobs within the ML framework",
+        "Triages service issues correctly and independently",
+      ],
+      "examples": [
+        "Upgraded NodeJS from 8.0 to 8.1.1",
+        "Built custom packages for RPMs",
+        "Improved ETL efficiency by improving Dynamo to S3 loading",
+      ],
+    }, {
+      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
+      "signals": [
+        "Acts as primary maintainer for existing critical systems",
+        "Designs moderately complex systems",
+        "Makes major version upgrades to libraries",
+      ],
+      "examples": [
+        "Designed Ansible configuration management",
+        "Built Medium's realtime stats pipeline",
+        "Designed flexible framework for writing machine learning jobs",
+      ],
+    }, {
+      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
+      "signals": [
+        "Designs complex projects that encompass multiple systems and technologies",
+        "Demonstrates deep knowledge of foundational systems",
+        "Introduces new databases and technologies to meet underserved needs",
+      ],
+      "examples": [
+        "Designed and built BBFD",
+        "Designed AWS configuration management",
+        "Introduced Kinesis and pioneered streaming events pipeline",
+      ],
+    }, {
+      "summary": "Is an industry-leading expert in foundational engineering or sets strategic foundational direction for an eng team",
+      "signals": [
+        "Designs transformational projects in service of long-term goals",
+        "Defines the strategic vision for foundational work and supporting technologies",
+        "Invents industry-leading techniques to solve complex problems",
+      ],
+      "examples": [
+        "Invented a novel ML technique that advanced the state of the art",
+        "Defined and developed Medium's continuous delivery strategy",
+        "Developed and implemented HA strategy",
+      ],
+    }],
+  },
+
+  "PROD_SEC": {
+    "displayName": "Product Security",
     "category": "A",
     "description": "Develops expertise in server side engineering, using technologies such as Go, NodeJS, or Scala",
+    "milestones": [{
+      "summary": "Works effectively within established server side frameworks, following current best practices",
+      "signals": [
+        "Adds NodeJS endpoints using layers architecture",
+        "Adds golang endpoints using Gotham architecture",
+        "Makes minor server changes to support client needs",
+      ],
+      "examples": [
+        "Added IFTTT trigger for new bookmark to medium2",
+        "Added delete audio route to Buggle",
+        "Queried a Dynamo LSI appropriately",
+      ],
+    }, {
+      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "signals": [
+        "Assesses correctness and utility of existing code and avoids blind copy-pasting",
+        "Generalizes code when appropriate",
+        "Determines data needs from product requirements",
+      ],
+      "examples": [
+        "Identified need for new index on Dynamo",
+        "Acted as caretaker for routes protos",
+        "Updated Facebook API version and codebase dependencies",
+      ],
+    }, {
+      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
+      "signals": [
+        "Acts as primary maintainer for existing critical systems",
+        "Integrates third party services effectively",
+        "Writes playbooks for new service maintenance",
+      ],
+      "examples": [
+        "Implemented Google Auth login to Medium",
+        "Implemented payments integration with Stripe",
+        "Built Textshots server",
+      ],
+    }, {
+      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
+      "signals": [
+        "Delivers complex systems that achieve their goals",
+        "Avoids subtle architectural mistakes when considering new systems",
+        "Makes appropriate buy vs build choices",
+      ],
+      "examples": [
+        "Designed Medium's ranked feed architecture",
+        "Designed custom domains architecture",
+        "Created Gotham framework for creating Go services",
+      ],
+    }, {
+      "summary": "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
+      "signals": [
+        "Designs transformational projects of significant complexity and scope",
+        "Makes decisions that have positive, long term, wide ranging consequences",
+        "Identifies and solves systemic problems with current architecture",
+      ],
+      "examples": [
+        "Researched, vetted, and selected Go as Medium's statically typed language",
+        "Defined microservices architecture and medium2 migration plan",
+        "Defined and implemented proprietary IP core to the company's success",
+      ],
+    }],
+  },
+
+
+  "IT_SUPPORT": {
+    "displayName": "IT Support",
+    "category": "A",
+    "description": "Develops expertise in internal IT support, mastering many areas like network, windows, macOs, etc.",
     "milestones": [{
       "summary": "Works effectively within established server side frameworks, following current best practices",
       "signals": [
