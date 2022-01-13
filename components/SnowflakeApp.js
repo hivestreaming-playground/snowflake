@@ -27,8 +27,9 @@ const hashToState = (hash: String): ?SnowflakeAppState => {
   trackIds.forEach((trackId, i) => {
     result.milestoneByTrack[trackId] = coerceMilestone(Number(hashValues[i]))
   })
-  if (hashValues[16]) result.name = decodeURI(hashValues[16])
-  if (hashValues[17]) result.title = decodeURI(hashValues[17])
+  const idx = trackIds.length
+  if (hashValues[idx]) result.name = decodeURI(hashValues[idx])
+  if (hashValues[idx+1]) result.title = decodeURI(hashValues[idx+1])
   return result
 }
 
@@ -75,27 +76,27 @@ const emptyState = (): SnowflakeAppState => {
 
 const defaultState = (): SnowflakeAppState => {
   return {
-    name: 'Cersei Lannister',
-    title: 'Staff Engineer',
+    name: 'Hive Employee',
+    title: 'NA',
     milestoneByTrack: {
-      'PRIVACY': 0,
-      'INFO_SEC': 0,
-      'IT_SEC': 0,
-      'PROD_SEC': 0,
+      'PRIVACY': 1,
+      'INFO_SEC': 1,
+      'IT_SEC': 3,
+      'PROD_SEC': 1,
       'BUSINESS_SOL': 0,
-      'IT_SUPPORT': 0,
-      'PROJECT_MANAGEMENT': 0,
-      'COMMUNICATION': 0,
-      'CRAFT': 0,
+      'IT_SUPPORT': 1,
+      'PROJECT_MANAGEMENT': 3,
+      'COMMUNICATION': 2,
+      'CRAFT': 3,
       'INITIATIVE': 0,
       'CAREER_DEVELOPMENT': 0,
-      'ORG_DESIGN': 0,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 0,
+      'ORG_DESIGN': 1,
+      'WELLBEING': 5,
+      'ACCOMPLISHMENT': 4,
       'MENTORSHIP': 0,
       'EVANGELISM': 0,
-      'RECRUITING': 0,
-      'COMMUNITY': 0
+      'RECRUITING': 1,
+      'COMMUNITY': 2
     },
     focusedTrackId: 'PRIVACY'
   }
@@ -159,9 +160,9 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             text-decoration: none;
           }
         `}</style>
-        <div style={{margin: '19px auto 0', width: 142}}>
-          <a href="https://medium.com/" target="_blank">
-            <Wordmark />
+        <div style={{"text-align": "center"}}>
+          <a href="https://hivestreaming.com/" target="_blank">
+            <h2>Hive Streaming / CIO Office</h2>
           </a>
         </div>
         <div style={{display: 'flex'}}>
@@ -174,10 +175,10 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   onChange={e => this.setState({name: e.target.value})}
                   placeholder="Name"
                   />
-              <TitleSelector
+              {/* <TitleSelector
                   milestoneByTrack={this.state.milestoneByTrack}
                   currentTitle={this.state.title}
-                  setTitleFn={(title) => this.setTitle(title)} />
+                  setTitleFn={(title) => this.setTitle(title)} /> */}
             </form>
             <PointSummaries milestoneByTrack={this.state.milestoneByTrack} />
             <LevelThermometer milestoneByTrack={this.state.milestoneByTrack} />
@@ -204,10 +205,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
         <div style={{display: 'flex', paddingBottom: '20px'}}>
           <div style={{flex: 1}}>
-            Made with ❤️ by <a href="https://medium.engineering" target="_blank">Medium Eng</a>.
-            Learn about the <a href="https://medium.com/s/engineering-growth-framework" target="_blank">this version of our growth framework</a>
-            {' '}and <a href="https://medium.engineering/engineering-growth-at-medium-4935b3234d25" target="_blank">what we do currently</a>.
-            Get the <a href="https://github.com/Medium/snowflake" target="_blank">source code</a>.
+            Based on the <a href="https://medium.com/s/engineering-growth-framework" target="_blank">Medium growth framework</a>. Get the <a href="https://github.com/Medium/snowflake" target="_blank">source code</a>.
             Read the <a href="https://medium.com/p/85e078bc15b7" target="_blank">terms of service</a>.
           </div>
         </div>
